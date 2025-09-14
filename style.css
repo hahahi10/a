@@ -1,0 +1,204 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #ff9a9e, #fad0c4);
+  font-family: 'Georgia', serif;
+  overflow: hidden;
+}
+
+.wrapper {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  text-align: center;
+  width: 80%;
+  max-width: 800px;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 3em;
+  color: #c2185b;
+  margin-bottom: 15px;
+}
+
+p.tagline {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.question {
+  margin-top: 20px;
+  padding: 20px;
+  border-top: 2px dashed #c2185b;
+}
+
+.question p {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.question button {
+  background: #c2185b;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  margin: 0 10px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.question button:hover {
+  background: #ad1457;
+  transform: scale(1.05);
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.music-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 320px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-container {
+  width: 100%;
+  height: 280px;
+  background-color: #eaf7ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player audio {
+  width: 100%;
+  outline: none;
+}
+
+.close-btn {
+  margin-top: 15px;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #c2185b;
+}
+
+.hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hearts span {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: rgba(255,255,255,0.7);
+  transform: rotate(45deg);
+  animation: float 10s linear infinite;
+  bottom: -50px;
+}
+
+.hearts span::before,
+.hearts span::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: inherit;
+}
+
+.hearts span::before {
+  top: -10px;
+  left: 0;
+}
+
+.hearts span::after {
+  left: -10px;
+  top: 0;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+  100% { transform: translateY(-1000px) rotate(45deg); opacity: 0; }
+}
+
+.tagline {
+max-height: 200px;      
+overflow-y: auto;       
+padding: 10px;
+background: rgba(255, 255, 255, 0.6);
+border-radius: 10px;
+}
+
+.tagline::-webkit-scrollbar {
+width: 8px;
+}
+
+.tagline::-webkit-scrollbar-thumb {
+background: #c2185b;
+border-radius: 4px;
+}
+
+
+.falling {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.falling-img {
+  position: absolute;
+  top: -50px;
+  animation: fall linear forwards;
+  opacity: 0.9;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.5;
+  }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Anniversary Special</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="falling" id="falling"></div>
+
+  <div class="wrapper" id="main-screen">
+    <h1>Happy Anniversary</h1>
+    <p class="tagline">
+      HIIII BABYYYY happy anniversary🥳🥳🎊🎊. Akalain mo yun napaka bilis ng panahon isang taon na tayong magkasama, napaka bilis ng panahon parang dati lang sinusuportahan pa kita sa mga katarantaduhan mo ngayon pinag babawalan na kita heheh andaming nangyari sa isang buong taon na yon. Maraming pagkakamali yung nagawa nating dalawa but in the end we solved it together and that shows how strong our relationship is and plus I'm proud of us kasi even tho na pinsan malala yung away or something kaya natin magpakumbaba sa isat isa and that shows how strong our love is. Thank you sa pag intindi sakin always kahit na minsan di ako masaway heheh hindi lang pala minsan kung di palagi. And I also wanna say sorry sa lahat ng mga kasalanan na nagawa ko sa lahat ng yon sa pinaka malala sa pinaka mababang kasalanan na nagawa ko sayo. And I'm proud of you always cuz I know na ur trying ur best in everything na ur doing and abt sa past natin, yeah you lost a lot of people pero at a good cost see how it healed u baby pero still ik na u still want to be friends with them kahit itanggi mo nigger. Tenk u ren cuz u always do mi assignment kapag bumibigay na ako tuwing gabi☹️☹️☹️ i loveee youuuu
+    </p>
+
+    <div class="question">
+      <p>Mahal mo parin Ako?</p>
+      <button onclick="ooAnswer()">Oo</button>
+      <button onclick="hindiAnswer()">Hindi</button>
+    </div>
+  </div>
+
+  <div id="overlay">
+    <div class="music-card">
+      <div class="image-container">
+        <img src="image.jpg" alt="Album Art">
+      </div>
+      <div class="player">
+        <audio id="song" controls autoplay loop>
+          <source src="iris-goo-goo-dolls.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+      <span class="close-btn" onclick="closeOverlay()">&#10006; Close</span>
+    </div>
+  </div>
+
+  <script>
+    function ooAnswer(){
+      document.getElementById('overlay').style.display = 'flex';
+      document.getElementById('song').play();
+    }
+    function hindiAnswer(){
+      alert('An error has occurred, option does not exist.');
+      location.reload();
+    }
+    function closeOverlay(){
+      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('song').pause();
+    }
+
+    // Random falling images
+    const fallingContainer = document.getElementById('falling');
+    const images = ["nailong1.jpg", "nailong2.png", "nailong3.png", "nailong4.png", "nailong5.png"];
+
+    function createFallingImage() {
+      const img = document.createElement('img');
+      img.src = images[Math.floor(Math.random() * images.length)];
+      img.classList.add('falling-img');
+
+      img.style.left = Math.random() * 100 + 'vw';
+      img.style.animationDuration = (5 + Math.random() * 10) + 's';
+      img.style.width = (30 + Math.random() * 30) + 'px';
+
+      fallingContainer.appendChild(img);
+
+      setTimeout(() => {
+        img.remove();
+      }, 15000);
+    }
+
+    setInterval(createFallingImage, 600);
+  </script>
+</body>
+</html>
